@@ -6,7 +6,10 @@
     <title>Yuh</title>
     <style>
         body {
-            background-color: black;
+            background-image: url(''); /* Replace with your image URL */
+            background-size: cover; /* Ensures the image covers the entire background */
+            background-position: center; /* Centers the image */
+            background-repeat: no-repeat; /* Prevents repeating the image */
             color: white;
             font-family: Arial, sans-serif;
             text-align: center;
@@ -54,8 +57,8 @@
 
     <script>
         function displayTimeZoneAndTime() {
-            // Get the time zone from the user's browser
-            const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+            // Update the time zone to 'America/Chicago'
+            const timeZone = 'America/Chicago';
             
             // Get the current time
             const now = new Date();
@@ -67,7 +70,7 @@
             };
             const timeString = now.toLocaleTimeString(undefined, options);
             
-            // Update the footer with time zone and current time
+            // Update the footer with your time zone and current time
             const footer = document.getElementById('timezone-footer');
             footer.textContent = `Your time zone: ${timeZone} | Current time: ${timeString}`;
         }
@@ -80,4 +83,3 @@
     </script>
 </body>
 </html>
-I'm yuh u got that? 
