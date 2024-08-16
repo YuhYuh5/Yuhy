@@ -1,4 +1,3 @@
-Hello I see u found my website
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,6 +29,15 @@ Hello I see u found my website
         .button:hover {
             background-color: darkblue;
         }
+        footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
@@ -40,7 +48,36 @@ Hello I see u found my website
         <a href="https://www.youtube.com/@Zuhy_" class="button">YouTube</a>
         <a href="https://www.mediafire.com/file_premium/avzq91ixcxffc48/Codex_v2.636.apk/file" class="button">Codex roblox</a>
     </div>
+    <footer id="timezone-footer">
+        <!-- Time zone and current time will be inserted here by JavaScript -->
+    </footer>
+
+    <script>
+        function displayTimeZoneAndTime() {
+            // Get the time zone from the user's browser
+            const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+            
+            // Get the current time
+            const now = new Date();
+            const options = { 
+                hour: '2-digit', 
+                minute: '2-digit', 
+                second: '2-digit', 
+                timeZone: timeZone 
+            };
+            const timeString = now.toLocaleTimeString(undefined, options);
+            
+            // Update the footer with time zone and current time
+            const footer = document.getElementById('timezone-footer');
+            footer.textContent = `Your time zone: ${timeZone} | Current time: ${timeString}`;
+        }
+
+        // Display the time zone and time when the page loads
+        displayTimeZoneAndTime();
+
+        // Update the time every second
+        setInterval(displayTimeZoneAndTime, 1000);
+    </script>
 </body>
 </html>
-
-I'm yuh the only yuh!
+I'm yuh u got that? 
