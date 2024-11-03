@@ -3,49 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yuh</title>
+    <title>Animated Text with Background, Buttons, and Time</title>
     <style>
+        /* Full page background */
         body {
-            background-color: black; /* Set the background color to black */
-            color: white;
-            font-family: Arial, sans-serif;
-            text-align: center;
+            background-image: url('https://i.ibb.co/KK7v7pM/Screenshot-2024-10-27-05-03-16-202.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center;
             margin: 0;
-            padding: 0;
-        }
-        .container {
-            margin-top: 20px;
-        }
-        h2 {
+            font-family: Arial, sans-serif;
             color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Animated "yuh" text */
+        .animated-text {
+            color: #fff;
             font-family: sans-serif;
             font-size: 4em;
             animation: animate 0.5s linear infinite;
-            margin-top: 20px; /* Adds a bit of space from the top */
+            margin-top: 20px;
         }
-        .button {
-            display: inline-block;
-            padding: 10px 20px;
-            margin: 10px;
-            background-color: blue;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            font-size: 18px;
-            animation: animate 0.5s linear infinite; /* Add animation to buttons */
+        
+        /* Time display styling */
+        .time-display {
+            font-size: 1.5em;
+            margin: 10px 0;
+            color: #fff;
         }
-        .button:hover {
-            background-color: darkblue;
-        }
-        footer {
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-            background-color: #333;
-            color: white;
-            padding: 10px;
-            text-align: center;
-        }
+
         @keyframes animate {
             0%, 100% {
                 text-shadow: -1.5px -1.5px 0 #0ff, 1.5px 1.5px 0 #f00;
@@ -60,46 +51,102 @@
                 text-shadow: -1.5px 1.5px 0 #0ff, 1.5px -1.5px 0 #f00;
             }
         }
+
+        /* Content styling */
+        .content {
+            text-align: center;
+            padding-top: 30px;
+        }
+
+        /* Button container */
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        /* Homer Simpson-themed button styling */
+        .homer-button, .roblox-button {
+            padding: 15px 25px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            transition: background-color 0.3s, transform 0.2s;
+            color: #fff;
+        }
+
+        /* Roblox button styling */
+        .roblox-button {
+            background-color: #ff5722;
+            border: 2px solid #d32f2f;
+        }
+
+        .roblox-button:hover {
+            background-color: #e64a19;
+            transform: scale(1.05);
+        }
+
+        .roblox-button:active {
+            background-color: #d32f2f;
+        }
+
+        /* Homer Simpson-themed button specific */
+        .homer-button {
+            background-color: #fdd835;
+            border: 2px solid #1976d2;
+        }
+
+        /* Hover and active effects */
+        .homer-button:hover {
+            background-color: #fbc02d;
+            transform: scale(1.05);
+        }
+
+        .homer-button:active {
+            background-color: #f9a825;
+        }
     </style>
 </head>
 <body>
-    <h2>yuh</h2>
-    <div class="container">
-        <a href="https://www.tiktok.com/@yuh_1s?_t=8oOJ6OF4hqA&_r=1" class="button">TikTok</a>
-        <a href="https://www.roblox.com/users/3401799906/profile?friendshipSourceType=PlayerSearch" class="button">Roblox</a>
-        <a href="https://discord.com/invite/9KC36yqh" class="button">Discord</a>
-        <a href="https://www.youtube.com/@Zuhy_" class="button">YouTube</a>
-        <a href="https://www.mediafire.com/file_premium/avzq91ixcxffc48/Codex_v2.636.apk/file" class="button">Codex roblox</a>
-    </div>
-    <footer id="timezone-footer">
-        <!-- Time zone and current time will be inserted here by JavaScript -->
-    </footer>
+    <!-- Animated Text -->
+    <h2 class="animated-text">yuh</h2>
 
+    <!-- Time Display -->
+    <div class="time-display" id="time"></div>
+
+    <!-- Main Content with Buttons -->
+    <div class="content">
+        <h1>Welcome to My Website</h1>
+        <p>This is an example of a background image in HTML.</p>
+
+        <!-- Button container with buttons including Roblox and Discord links -->
+        <div class="button-container">
+            <a href="https://www.roblox.com/users/3401799906/profile" class="roblox-button" target="_blank">Roblox</a>
+            <a href="https://discord.gg/qPeNHfpUJD" class="homer-button" target="_blank">Discord</a>
+        </div>
+    </div>
+
+    <!-- JavaScript for time display in America/Chicago timezone -->
     <script>
-        function displayTimeZoneAndTime() {
-            // Update the time zone to 'America/Chicago'
-            const timeZone = 'America/Chicago';
-            
-            // Get the current time
-            const now = new Date();
+        function updateTime() {
             const options = { 
-                hour: '2-digit', 
-                minute: '2-digit', 
-                second: '2-digit', 
-                timeZone: timeZone 
+                timeZone: 'America/Chicago', 
+                hour: 'numeric', 
+                minute: 'numeric', 
+                second: 'numeric', 
+                hour12: true, 
+                timeZoneName: 'short' 
             };
-            const timeString = now.toLocaleTimeString(undefined, options);
-            
-            // Update the footer with your time zone and current time
-            const footer = document.getElementById('timezone-footer');
-            footer.textContent = `yuh time zone: ${timeZone} | Current time: ${timeString}`;
+            const now = new Date().toLocaleTimeString([], options);
+            document.getElementById('time').textContent = now;
         }
 
-        // Display the time zone and time when the page loads
-        displayTimeZoneAndTime();
-
-        // Update the time every second
-        setInterval(displayTimeZoneAndTime, 1000);
+        updateTime(); // Show time immediately
+        setInterval(updateTime, 1000); // Update every second
     </script>
 </body>
-</html>
+</html>    
